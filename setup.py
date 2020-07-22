@@ -3,13 +3,13 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="aurora-data-api",
-    version="0.2.0",
-    url='https://github.com/chanzuckerberg/aurora-data-api',
+    name="sqlalchemy-serverless-aurora-plugin",
+    version="0.1.0",
+    url='https://github.com/duncankoss/sqlalchemy-serverless-aurora-plugin',
     license='Apache Software License',
-    author='Andrey Kislyuk',
-    author_email='akislyuk@chanzuckerberg.com',
-    description='A Python DB-API 2.0 client for the AWS Aurora Serverless Data API',
+    author='dkoss',
+    author_email='',
+    description='A fork of aurora-data-api',
     long_description=open('README.rst').read(),
     install_requires=[
         'boto3 >= 1.9.245, < 2'
