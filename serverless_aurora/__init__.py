@@ -207,6 +207,8 @@ class AuroraDataAPICursor:
             return DatabaseError(MySQLErrorCodes(err_info[1]).value, err_info[2])
         except self._client.exceptions.BadRequestException:
             return DatabaseError(original_error)
+        except IndexError:
+            return DatabaseError(original_error)
 
     def execute(self, operation, parameters=None):
         self._current_response, self._iterator, self._paging_state = None, None, None
