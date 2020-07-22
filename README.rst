@@ -1,6 +1,9 @@
 aurora-data-api - A Python DB-API 2.0 client for the AWS Aurora Serverless Data API
 ===================================================================================
 
+This is a fork of aurora-data-api:
+https://github.com/chanzuckerberg/aurora-data-api
+
 Installation
 ------------
 ::
