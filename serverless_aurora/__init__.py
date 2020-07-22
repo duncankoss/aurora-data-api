@@ -203,11 +203,13 @@ class AuroraDataAPICursor:
         # TODO: avoid SHOW ERRORS if on postgres (it's a useless network roundtrip)
         try:
             err_res = self._client.execute_statement(**self._prepare_execute_args("SHOW ERRORS"))
-            err_info = self._render_response(err_res)["records"][-1]
-            return DatabaseError(MySQLErrorCodes(err_info[1]).value, err_info[2])
+            err_info = self._render_response(err_res)
+            if 'records' in err_info and len(err_info['records']) > 0:
+                err_info = self._render_response(err_res)["records"][-1]
+                return DatabaseError(MySQLErrorCodes(err_info[1]).value, err_info[2])
+            else:
+                return DatabaseError(original_error)
         except self._client.exceptions.BadRequestException:
-            return DatabaseError(original_error)
-        except IndexError:
             return DatabaseError(original_error)
 
     def execute(self, operation, parameters=None):
