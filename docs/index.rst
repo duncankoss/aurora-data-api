@@ -3,7 +3,7 @@
 API documentation
 =================
 
-.. automodule:: aurora-data-api
+.. automodule:: serverless-aurora
    :members:
    :special-members:
    :exclude-members: __weakref__
